@@ -4,8 +4,6 @@
 
 Written in node.js and mongodb, eIquidus is the most stable, secure, customizable and feature-rich open-source block explorer with support for virtually any altcoin that implements some form of the [Bitcoin RPC API protocol](https://developer.bitcoin.org/reference/rpc/index.html). Originally built for the [Exor blockchain](https://github.com/team-exor/exor), eIquidus has since grown into a fully-featured explorer with a focus on stability and security at its core. All features from the [original iquidus explorer](https://github.com/iquidus/explorer) are included here along with many new ideas from other iquidus forks, and an absolute ton of new custom changes and bug fixes that were developed specifically for eIquidus.
 
-![Homepage](public/img/screenshots/homepage.png)
-
 #### Special Thanks
 - **[Luke Williams (aka iquidus)](https://github.com/iquidus):** for creating the original [Iquidus explorer](https://github.com/iquidus/explorer)
 - **[Alan Rudolf (aka suprnurd)](https://github.com/suprnurd):** for the custom changes found in the [Ciquidus explorer](https://github.com/suprnurd/ciquidus)
@@ -203,10 +201,6 @@ Table of Contents
       - **getnextrewardwhenstr:** Returns a string describing how long until the votes are tallied and the next block reward is computed
   - Zcash/zk-SNARKs private tx support
 
-### See it in Action
-
--  https://explorer.exor.io/
-
 ### Installation
 
 #### Full Setup Guide
@@ -227,6 +221,15 @@ The following prerequisites must be installed before using the explorer:
 - [MongoDB](https://www.mongodb.com/) (v4.4.3 or newer recommended)
 - A fully synchronized *coind* wallet daemon that supports the [Bitcoin RPC API protocol](https://developer.bitcoin.org/reference/rpc/index.html)
 
+##### Ubuntu 20.04 dependencies
+
+```
+sudo apt-get update && sudo apt-get upgrade -y
+```
+```
+sudo apt-get install libminiupnpc- dev libzmq3-dev libprotobuf-dev protobuf-compiler unzip software-properties-common libkrb5-dev mongodb nodejs npm git nano cmake screen nginx -y
+```
+
 ##### Database Setup
 
 Open the MongoDB cli:
@@ -246,13 +249,13 @@ use explorerdb
 Create a new user with read/write access:
 
 ```
-db.createUser( { user: "eiquidus", pwd: "Nd^p2d77ceBX!L", roles: [ "readWrite" ] } )
+db.createUser( { user: "UserName", pwd: "UserPass", roles: [ "readWrite" ] } )
 ```
 
 ##### Download Source Code
 
 ```
-git clone https://github.com/team-exor/eiquidus explorer
+git clone https://github.com/42-coin/eiquidus
 ```
 
 ##### Install Node Modules
@@ -428,13 +431,11 @@ Notes:
 
 #### Sample Crontab
 
-*Example crontab; update index every minute, market data every 2 minutes, peers and masternodes every 5 minutes*
+*Example crontab; update index every minute and peers every 5 minutes*
 
 ```
-*/1 * * * * /path/to/explorer/scripts/sync.sh /path/to/node update > /dev/null 2>&1
-*/2 * * * * /path/to/explorer/scripts/sync.sh /path/to/node market > /dev/null 2>&1
-*/5 * * * * /path/to/explorer/scripts/sync.sh /path/to/node peers > /dev/null 2>&1
-*/5 * * * * /path/to/explorer/scripts/sync.sh /path/to/node masternodes > /dev/null 2>&1
+*/1 * * * * cd /home/USERNAME/explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
+*/5 * * * * cd /home/USERNAME/explorer && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1
 ```
 
 ### Wallet Settings

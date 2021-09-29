@@ -25,10 +25,10 @@
   "wallet": {
     // host: The hostname or ip address of the wallet to connect to (default: localhost)
     "host": "localhost",
-    // port: The port # that the wallet is configured to listen for RPC requests on (default: 51573 for Exor wallet)
-    "port": 51573,
+    // port: The port # that the wallet is configured to listen for RPC requests on (default: 2121 for 42-coin wallet)
+    "port": 2121,
     // username: The wallet RPC username
-    "username": "exorrpc",
+    "username": "user",
     // password: The wallet RPC password
     "password": "sSTLyCkrD94Y8&9mr^m6W^Mk367Vr!!K"
   },
@@ -73,9 +73,9 @@
   "coin": {
     // name: Name of the cryptocurrency coin being explored. This value is displayed in the page header when the "shared_pages.page_header.home_link" setting is set to "coin".
     //       NOTE: This value acts as a unique identifier for data stored in mongo and therefore cannot be changed without re-syncing all existing data.
-    "name": "Exor",
+    "name": "42-coin",
     // symbol: The cryptocurrency coin ticker/symbol value. This value is displayed anywhere that coin data is displayed including the index, address, block, movement, reward, richlist/top100 and tx pages
-    "symbol": "EXOR"
+    "symbol": "42"
   },
 
   /* Shared page settings */
@@ -85,9 +85,9 @@
     // theme: Change the look & feel of the explorer with a unique theme. Uses bootswatch themes (https://bootswatch.com)
     //        Valid options: Cerulean, Cosmo, Cyborg, Darkly, Exor, Flatly, Journal, Litera, Lumen, Lux, Materia, Minty, Pulse, Sandstone, Simplex, Sketchy, Slate, Solar, Spacelab, Superhero, United, Yeti
     //        (see /public/css/themes for available themes)
-    "theme": "Exor",
+    "theme": "Cosmo",
     // page_title: The text to display in the HTML title tag and also displayed in the page header when the "shared_pages.page_header.home_link" setting is set to "title"
-    "page_title": "eIquidus",
+    "page_title": "42-coin | Explorer",
     // favicon: The path to an icon file that is displayed in a browser window/tab and serves as branding for your website. Its main purpose is to help visitors locate your page easier when they have multiple tabs open
     //          NOTE: The path root is /
     "favicon": "public/favicon.ico",
@@ -118,13 +118,13 @@
     //                if confirms are >= to this value then the block or tx is considered valid and shows up in green
     //                if confirms are < this value by more than 50% then the block or tx is considered unconfirmed and shows up in red
     //                if confirms are < this value by less than 50% then the block or tx is considered unconfirmed and shows up in orange
-    "confirmations": 40,
+    "confirmations": 7,
     // difficulty: Determine which network difficulty value to display (valid options are: POW, POS or Hybrid)
     //             Some blockchains show different difficulty values depending on available POW/POS options:
     //             POW: Display the proof-of-work difficulty value
     //             POS: Display the proof-of-stake difficulty value
     //             Hybrid: Display both the proof-of-work and proof-of-stake difficulty values
-    "difficulty": "POS",
+    "difficulty": "Hybrid",
     // show_hashrate: Determine whether to show network hash rate where applicable (true/false)
     //                If set to false, the /api/getnetworkhashps and /ext/getsummary apis will no longer show hash rate information
     "show_hashrate": true,
@@ -185,11 +185,11 @@
         "masternodes_panel": {
           // enabled: Enable/disable the masternode panel (true/false)
           //          If set to false, the masternode panel will be completely inaccessible
-          "enabled": true,
+          "enabled": false,
           // display_order: Determine which order this panel is shown from 1-5
           //                1 = far left panel, 5 = far right panel
           //                The panel will be disabled with a value of 0
-          "display_order": 2
+          "display_order": 0
         },
         // coin_supply_panel: a collection of settings that pertain to the coin supply panel which displays the current circulating coin supply value
         "coin_supply_panel": {
@@ -280,7 +280,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Github
           "tooltip_text": "Github",
           // url: The exact url that the social link should navigate to
-          "url": "https://github.com/team-exor",
+          "url": "https://github.com/42-coin",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fab fa-github",
           // image_path: The path to an image file that will be displayed for this social link
@@ -294,7 +294,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Twitter
           "tooltip_text": "Twitter",
           // url: The exact url that the social link should navigate to
-          "url": "https://twitter.com/ExorOfficial",
+          "url": "https://twitter.com/42newchain",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fab fa-twitter",
           // image_path: The path to an image file that will be displayed for this social link
@@ -308,7 +308,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Discord
           "tooltip_text": "Discord",
           // url: The exact url that the social link should navigate to
-          "url": "https://discord.gg/dSuGm3y",
+          "url": "https://discord.gg/ge2gUHy",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fab fa-discord",
           // image_path: The path to an image file that will be displayed for this social link
@@ -322,7 +322,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Telegram
           "tooltip_text": "Telegram",
           // url: The exact url that the social link should navigate to
-          "url": "https://t.me/Exorofficial",
+          "url": "https://t.me/newchain42",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fab fa-telegram",
           // image_path: The path to an image file that will be displayed for this social link
@@ -336,7 +336,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Website
           "tooltip_text": "Website",
           // url: The exact url that the social link should navigate to
-          "url": "https://exor.io",
+          "url": "https://42-coin.org/",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
@@ -350,7 +350,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Coingecko
           "tooltip_text": "Coingecko",
           // url: The exact url that the social link should navigate to
-          "url": "https://www.coingecko.com/en/coins/exor",
+          "url": "https://www.coingecko.com/en/coins/42-coin",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
@@ -499,7 +499,7 @@
   "masternodes_page": {
     // enabled: Enable/disable the masternodes page (true/false)
     //          If set to false, the masternodes page will be completely inaccessible
-    "enabled": true,
+    "enabled": false,
     // show_panels: Determine whether to show the panels configured in the shared_pages.page_header section across the top of this page (true/false)
     "show_panels": false,
     // page_header: a collection of settings that pertain to the masternodes page header
@@ -565,7 +565,7 @@
   "network_page": {
     // enabled: Enable/disable the network page (true/false)
     //          If set to false, the network page will be completely inaccessible
-    "enabled": true,
+    "enabled": false,
     // show_panels: Determine whether to show the panels configured in the shared_pages.page_header section across the top of this page (true/false)
     "show_panels": false,
     // page_header: a collection of settings that pertain to the network page header
@@ -692,12 +692,12 @@
       "altmarkets": {
         // enabled: Enable/disable the altmarkets exchange (true/false)
         //          If set to false, the altmarkets page will be completely inaccessible and no market data will be downloaded for this exchange
-        "enabled": false,
+        "enabled": true,
         // trading_pairs: An array of market trading pair symbols
         //                You can add as many trading pairs as necessary
         //                All entries must specify your coins symbol as it is displayed on the exchange, followed by a slash (/) and ending with the symbol of the market or asset that is being traded against
         //                Ex: "LTC/BTC", "LTC/USDT", "LTC/ETH"
-        "trading_pairs": [ "LTC/BTC", "LTC/ETH" ]
+        "trading_pairs": [ "42/BTC"]
       },
       // bittrex: a collection of settings that pertain to the bittrex exchange
       "bittrex": {
@@ -785,9 +785,9 @@
     "default_exchange": {
       // exchange_name: The name of the default exchange must exactly match the name of an exchange in the "exchanges" setting above
       //                See the list of supported exchanges above for the list of supported exchange names
-      "exchange_name": "stex",
+      "exchange_name": "altmarkets",
       // trading_pair: The name of the trading pair for the default exchange must exactly match the name of a trading pair from the "exchanges" setting above
-      "trading_pair": "LTC/BTC"
+      "trading_pair": "42/BTC"
     }
   },
 
@@ -795,7 +795,7 @@
   "api_page": {
     // enabled: Enable/disable the public api system (true/false)
     //          If set to false, the entire api page will be disabled and all public api endpoints will show a "This method is disabled" msg when called regardless of their individual enabled statuses
-    "enabled": true,
+    "enabled": false,
     // show_panels: Determine whether to show the panels configured in the shared_pages.page_header section across the top of this page (true/false)
     "show_panels": false,
     // page_header: a collection of settings that pertain to the api page header
