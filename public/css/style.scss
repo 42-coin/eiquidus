@@ -452,7 +452,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-size: 80%;
   }
   .social-link {
-    margin-right: 0.2rem;
+    margin-right: 0.8rem;
     font-size: 100%;
   }
 }
@@ -863,6 +863,11 @@ tr {
   color: #000;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
 .navbar-nav .active .nav-link {
   color: #686868;
 }
@@ -895,4 +900,16 @@ tr {
 
 #pieChart {
   margin-top: 10px !important;
+}
+
+.badge {
+  font-size: 90%;
+}
+
+.badge-secondary {
+  background-color: unset;
+}
+
+#index-search {
+  width: 86%;
 }
