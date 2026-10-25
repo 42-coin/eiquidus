@@ -25,10 +25,10 @@
   "wallet": {
     // host: The hostname or ip address of the wallet to connect to (default: localhost)
     "host": "localhost",
-    // port: The port # that the wallet is configured to listen for RPC requests on (default: 51573 for Exor wallet)
-    "port": 51573,
+    // port: The port # that the wallet is configured to listen for RPC requests on (default: 2121 for 42-coin wallet)
+    "port": 2121,
     // username: The wallet RPC username
-    "username": "exorrpc",
+    "username": "user",
     // password: The wallet RPC password
     "password": "sSTLyCkrD94Y8&9mr^m6W^Mk367Vr!!K"
   },
@@ -77,9 +77,9 @@
   "coin": {
     // name: Name of the cryptocurrency coin being explored. This value is displayed in the page header when the "shared_pages.page_header.home_link" setting is set to "coin".
     //       NOTE: This value acts as a unique identifier for data stored in mongo and therefore cannot be changed without re-syncing all existing data.
-    "name": "Exor",
+    "name": "42-coin",
     // symbol: The cryptocurrency coin ticker/symbol value. This value is displayed anywhere that coin data is displayed including the index, address, block, movement, reward, richlist/top100 and tx pages
-    "symbol": "EXOR"
+    "symbol": "42"
   },
 
   // network_history: a collection of settings that controls saving of extra historical network data during a block sync
@@ -100,7 +100,7 @@
     // theme: Change the look & feel of the explorer with a unique theme. Uses bootswatch themes (https://bootswatch.com)
     //        Valid options: Cerulean, Cosmo, Cyborg, Darkly, Exor, Flatly, Journal, Litera, Lumen, Lux, Materia, Minty, Morph, Pulse, Quartz, Sandstone, Simplex, Sketchy, Slate, Solar, Spacelab, Superhero, United, Vapor, Yeti, Zephyr
     //        (see /public/css/themes for available themes)
-    "theme": "Exor",
+    "theme": "Lumen",
     // page_title: The text to display at the end of the HTML title tag and also displayed in the page header when the "shared_pages.page_header.home_link" setting is set to "title"
     "page_title": "eIquidus",
     // favicons: a collection of image or icon files that are displayed in a browser window/tab and serve as branding for your website. Their main purpose is to help visitors locate your page easier when they have multiple tabs open
@@ -138,7 +138,7 @@
       //                               If set to true and the "shared_pages.date_time.timezone" setting is set to "utc" then enabling this option will display date/time tooltips in the local browser's timezone
       //                               If set to true and the "shared_pages.date_time.timezone" setting is set to "local" then enabling this option will display date/time tooltips in the UTC timezone
       //                               If set to false, no tooltips will be displayed for any date/time values
-      "enable_alt_timezone_tooltips": false
+      "enable_alt_timezone_tooltips": true
     },
     // table_header_bgcolor: Change the background color of all table headers
     //                       valid options: light, dark or leave blank ( "" ) for default colors
@@ -147,22 +147,22 @@
     //                if confirms are >= to this value then the block or tx is considered valid and shows up in green
     //                if confirms are < this value by more than 50% then the block or tx is considered unconfirmed and shows up in red
     //                if confirms are < this value by less than 50% then the block or tx is considered unconfirmed and shows up in orange
-    "confirmations": 40,
+    "confirmations": 7,
     // difficulty: Determine which network difficulty value to display (valid options are: POW, POS or Hybrid)
     //             Some blockchains show different difficulty values depending on available POW/POS options:
     //             POW: Display the proof-of-work difficulty value
     //             POS: Display the proof-of-stake difficulty value
     //             Hybrid: Display both the proof-of-work and proof-of-stake difficulty values
-    "difficulty": "POS",
+    "difficulty": "PoW",
     // show_hashrate: Determine whether to show network hash rate where applicable (true/false)
     //                If set to false, the /api/getnetworkhashps and /ext/getsummary apis will no longer show hash rate information, and the network hashrate chart will automatically be disabled
-    "show_hashrate": true,
+    "show_hashrate": false,
     // page_header: A collection of settings that pertain to the page header that is displayed at the top of all pages
     "page_header": {
       // menu: Valid options:
       //       top: display menu items horizontally across the top of the page
       //       side: display menu items vertically across the left-hand side of the page
-      "menu": "side",
+      "menu": "top",
       // sticky_header: Determine whether page header "sticks" to top of page or not (true/false)
       "sticky_header": true,
       // bgcolor: Change the background color of the page header
@@ -218,7 +218,7 @@
         "masternodes_panel": {
           // enabled: Enable/disable the masternode panel (true/false)
           //          If set to false, the masternode panel will be completely inaccessible
-          "enabled": true,
+          "enabled": false,
           // display_order: Determine which order this panel is shown from 1-5
           //                1 = far left panel, 5 = far right panel
           //                The panel will be disabled with a value of 0
@@ -228,7 +228,7 @@
         "coin_supply_panel": {
           // enabled: Enable/disable the coin supply panel (true/false)
           //          If set to false, the coin supply panel will be completely inaccessible
-          "enabled": true,
+          "enabled": false,
           // display_order: Determine which order this panel is shown from 1-5
           //                1 = far left panel, 5 = far right panel
           //                The panel will be disabled with a value of 0
@@ -248,7 +248,7 @@
         "usd_price_panel": {
           // enabled: Enable/disable the usd price panel (true/false)
           //          If set to false, the usd price panel will be completely inaccessible
-          "enabled": true,
+          "enabled": false,
           // display_order: Determine which order this panel is shown from 1-5
           //                1 = far left panel, 5 = far right panel
           //                The panel will be disabled with a value of 0
@@ -268,7 +268,7 @@
         "usd_market_cap_panel": {
           // enabled: Enable/disable the usd market cap panel (true/false)
           //          If set to false, the usd market cap panel will be completely inaccessible
-          "enabled": true,
+          "enabled": false,
           // display_order: Determine which order this panel is shown from 1-5
           //                1 = far left panel, 5 = far right panel
           //                The panel will be disabled with a value of 0
@@ -334,7 +334,7 @@
         //             The optimum logo size is 48x48 as the image will be forced to this size when displayed
         "image_path": "/img/page-title-img.png",
         // enable_animation: Enable/disable the flip/spin animation on the page title image (true/false)
-        "enable_animation": true
+        "enable_animation": false
       },
       // network_charts: A collection of settings that pertain to the network hashrate and difficulty line charts displayed on page header of all pages
       //                 NOTE: You can independently show/hide individual charts by changing the show_nethash_chart and show_difficulty_chart values in the settings for each page
@@ -438,7 +438,7 @@
         "difficulty_chart": {
           // enabled: Enable/disable the network difficulty chart (true/false)
           //          If set to false, the network difficulty chart will be completely inaccessible
-          "enabled": true,
+          "enabled": false,
           // chart_title: A collection of settings that pertain to the chart title
           "chart_title": {
             // enabled: Enable/disable the chart title (true/false)
@@ -572,10 +572,10 @@
           // enabled: Enable/disable this particular social link (true/false)
           //          If set to false, the link will be completely inaccessible
           "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Github
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Github
           "tooltip_text": "Github",
           // url: The exact url that the social link should navigate to
-          "url": "https://github.com/team-exor",
+          "url": "https://github.com/42-coin",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fa-brands fa-github",
           // image_path: The path to an image file that will be displayed for this social link
@@ -586,10 +586,10 @@
           // enabled: Enable/disable this particular social link (true/false)
           //          If set to false, the link will be completely inaccessible
           "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Twitter
-          "tooltip_text": "Twitter",
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Twitter
+          "tooltip_text": "Twitter/X",
           // url: The exact url that the social link should navigate to
-          "url": "https://twitter.com/ExorOfficial",
+          "url": "https://x.com/42newchain",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fa-brands fa-twitter",
           // image_path: The path to an image file that will be displayed for this social link
@@ -600,10 +600,10 @@
           // enabled: Enable/disable this particular social link (true/false)
           //          If set to false, the link will be completely inaccessible
           "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Discord
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Discord
           "tooltip_text": "Discord",
           // url: The exact url that the social link should navigate to
-          "url": "https://discord.gg/dSuGm3y",
+          "url": "https://discord.gg/ge2gUHy",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fa-brands fa-discord",
           // image_path: The path to an image file that will be displayed for this social link
@@ -614,10 +614,10 @@
           // enabled: Enable/disable this particular social link (true/false)
           //          If set to false, the link will be completely inaccessible
           "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Telegram
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Telegram
           "tooltip_text": "Telegram",
           // url: The exact url that the social link should navigate to
-          "url": "https://t.me/Exorofficial",
+          "url": "https://t.me/news42coin",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "fa-brands fa-telegram",
           // image_path: The path to an image file that will be displayed for this social link
@@ -628,10 +628,10 @@
           // enabled: Enable/disable this particular social link (true/false)
           //          If set to false, the link will be completely inaccessible
           "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Website
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Website
           "tooltip_text": "Website",
           // url: The exact url that the social link should navigate to
-          "url": "https://exor.io",
+          "url": "https://42-coin.org",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
@@ -641,16 +641,30 @@
         {
           // enabled: Enable/disable this particular social link (true/false)
           //          If set to false, the link will be completely inaccessible
-          "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Coingecko
+          "enabled": false,
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Coingecko
           "tooltip_text": "Coingecko",
           // url: The exact url that the social link should navigate to
-          "url": "https://www.coingecko.com/en/coins/exor",
+          "url": "https://www.coingecko.com/en/coins/42-coin",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
           //             NOTE: The path root is /public
           "image_path": "/img/coingecko.png"
+        },
+        {
+          // enabled: Enable/disable this particular social link (true/false)
+          //          If set to false, the link will be completely inaccessible
+          "enabled": false,
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: 42-coin Coinmarketcap
+          "tooltip_text": "Coinmarketcap",
+          // url: The exact url that the social link should navigate to
+          "url": "https://coinmarketcap.com/currencies/42-coin/",
+          // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
+          "fontawesome_class": "",
+          // image_path: The path to an image file that will be displayed for this social link
+          //             NOTE: The path root is /public
+          "image_path": "/img/coinmarketcap.png"
         }
       ],
       // Customize the height of the social media links in the footer for the following screen sizes:
@@ -666,7 +680,7 @@
       "social_link_percent_height_mobile": 40,
       // powered_by_text: Customize the "powered by" text in the center of the footer with some custom html
       //                  NOTE: Add the keyword {explorer_version} to display the current version number of the explorer
-      "powered_by_text": "<a class='nav-link poweredby' href='https://github.com/team-exor/eiquidus' target='_blank'>eIquidus v{explorer_version}</a>"
+      "powered_by_text": "<a class='nav-link poweredby' href='https://github.com/42-coin/eiquidus' target='_blank'>eIquidus v{explorer_version}</a>"
     }
   },
 
@@ -677,7 +691,7 @@
     // show_panels: Determine whether to show the panels configured in the shared_pages.page_header section across the top of this page (true/false)
     "show_panels": true,
     // show_nethash_chart: Determine whether to show the network hashrate chart configured in the shared_pages.network_charts.nethash_chart section across the top of this page (true/false)
-    "show_nethash_chart": true,
+    "show_nethash_chart": false,
     // show_difficulty_chart: Determine whether to show the network difficulty chart configured in the shared_pages.network_charts.difficulty_chart section across the top of this page (true/false)
     "show_difficulty_chart": true,
     // page_header: a collection of settings that pertain to the index page header
@@ -705,7 +719,7 @@
     },
     // show_extracted_by: Determine whether to show a new column with the address(es) that mined the block
     //                    If enabled, a new column will be displayed on the index page that displays the address(es) that mined the block for the coinbase transaction only
-    "show_extracted_by": false
+    "show_extracted_by": true
   },
 
   // block_page: a collection of settings that pertain to the block page
@@ -728,7 +742,7 @@
     // genesis_block: Your coins genesis block hash is used to determine the beginning of the blockchain
     //                For many bitcoin clones you can use the following cmd to get the block hash of the genesis block: coin-cli getblockhash 0
     //                NOTE: If this value is not entered correctly it will not be possible for the explorer to find or navigate to the genesis block, neither via block or transaction hash
-    "genesis_block": "00014f36c648cdbc750f7dd28487a23cd9e0b0f95f5fccc5b5d01367e3f57469",
+    "genesis_block": "000004cf6cc5eec2d2d564fa45c26278ed72014822a601c1ff02cd84d0ef63be",
     // multi_algorithm: a collection of settings that can be used to show a new column with the hash algorithm that was used to mine a particular block for multi-algo coins
     //                  If enabled, a new column will be displayed on the block page and main transaction homepage that displays the hash algorithm used to mine a particular block or tx
     //                  NOTE: Changing any of the options in this section will require a full reindex of the blockchain data before previously synced blocks can display the algorithm
@@ -742,7 +756,7 @@
     },
     // show_extracted_by: Determine whether to show a new column with the address(es) that mined the block
     //                    If enabled, a new column will be displayed on the block page that displays the address(es) that mined the block
-    "show_extracted_by": false
+    "show_extracted_by": true
   },
 
   // transaction_page: a collection of settings that pertain to the transaction/tx page
@@ -765,13 +779,13 @@
     // genesis_tx: Your coins genesis transaction hash is used to determine the beginning of the blockchain
     //             For many bitcoin clones you can use the following cmd to find the list of transaction hashes from the genesis block: coin-cli getblock 00014f36c648cdbc750f7dd28487a23cd9e0b0f95f5fccc5b5d01367e3f57469
     //             NOTE: If this value is not entered correctly it will not be possible for the explorer to find or navigate to the genesis block by searching for the genesis transaction hash
-    "genesis_tx": "dd1d332ad2d8d8f49195056d482ae3c96fd2d16e9d166413b27ca7f19775644c",
+    "genesis_tx": "8595bda86b1eb5c8b1830bf4c391c6d2b66adc688caf00795fbb8a5bbb0f94ce",
     // show_op_return: Determine whether to decode and show OP_RETURN values that may have been embeddeded in a transaction
     //                 NOTE: Enabling this option will require a full reindex of the blockchain data before previously synced transactions can display the OP_RETURN value
-    "show_op_return": false,
+    "show_op_return": true,
     // show_extracted_by: Determine whether to show a new column with the address(es) that mined the block
     //                    If enabled, a new column will be displayed on the transaction page that displays the address(es) that mined the block for the coinbase transaction only
-    "show_extracted_by": false
+    "show_extracted_by": true
   },
 
   // address_page: a collection of settings that pertain to the address page
@@ -837,7 +851,7 @@
   "masternodes_page": {
     // enabled: Enable/disable the masternodes page (true/false)
     //          If set to false, the masternodes page will be completely inaccessible
-    "enabled": true,
+    "enabled": false,
     // show_panels: Determine whether to show the panels configured in the shared_pages.page_header section across the top of this page (true/false)
     "show_panels": false,
     // show_nethash_chart: Determine whether to show the network hashrate chart configured in the shared_pages.network_charts.nethash_chart section across the top of this page (true/false)
@@ -899,11 +913,11 @@
       //                       Set to 0 to disable automatic reloading of table data
       "reload_table_seconds": 45,
       // min_amount: The minimum number of coins that need to be received in a single transaction to show up on the movement page
-      "min_amount": 5000,
+      "min_amount": 0.000001,
       // low low_warning_flag: Flag all transactions in yellow/orange that are sent with coin amounts above this value
-      "low_warning_flag": 50000,
+      "low_warning_flag": 0.01,
       // high_warning_flag: Flag all transactions in red that are sent with coin amounts above this value
-      "high_warning_flag": 100000
+      "high_warning_flag": 0.1
     }
   },
 
@@ -1038,7 +1052,7 @@
       //            Use this setting to prevent specific wallet addresses from being displayed in the rich list and wealth distribution chart sections
       //            These wallet addresses will be completely removed from the rich list, but will still be viewable and accessible via the rest of the explorer pages as per normal
       //            Add as many wallet addresses as necessary in the following format: [ "EPUzEEHa45Rsn87WBos6SqkZZ8GrsfgvtZ", "EUzgat1r5AFyoTXK5WgTyM8kABPJY1SX7E" ]
-      "addresses": [ "EXorBurnAddressXXXXXXXXXXXXXW7cDZQ" ],
+      "addresses": [ "4K7Q8XHw6vb8v25jBMQJvBYDJ71jJybzhG" ],
       // include_burned_coins_in_distribution: Determine whether to include burned coins in the wealth distribution section or not
       //                                       This setting will need to be changed depending on whether your main coin supply value already has the burned coins removed from its total or not
       //                                       Set this value to false if your blockchain already has a mechanism for removing burned coins from the total supply and the burned coins will not be included in the distribution totals
@@ -1237,14 +1251,14 @@
       // blockhash: This value can be any valid block hash from your coins blockchain
       //            For many bitcoin clones you can use the following cmd to get the block hash for a given block height: coin-cli getblockhash 64152
       //            NOTE: This value is only used to build example api links on the api page from the /api/getblock api for example
-      "blockhash": "775d67da29dd6553268061f86368d06654944dd5d5c61db4c97e4c7960c11a74",
+      "blockhash": "000000000bea31816fc2f21bb242168b2363edf6652f3721ee67439e363acc3e",
       // txhash: This value can be any valid transaction hash from your coins blockchain
-      //         For many bitcoin clones you can use the following cmd to find a list of tx hashes for a given block hash: coin-cli getblock 000000001ba119a0f6d49ebabd83343b125d7ee3d3184b1b41d6a7f2051153eb
+      //         For many bitcoin clones you can use the following cmd to find a list of tx hashes for a given block hash: coin-cli getblock 000000000bea31816fc2f21bb242168b2363edf6652f3721ee67439e363acc3e
       //         NOTE: This value is only used to build example api links on the api page from the /api/getrawtransaction api for example
-      "txhash": "6cb3babd256de253f926f10bc8574dadf0a3e2fc8380107b81eb07c67d1e73ed",
+      "txhash": "aabd145d179f0c34d79c85a9d1ab4120646909478c46356c20b762aee0a43edc",
       // address: This value can be any valid wallet address from your coins blockchain that has received at least 1 or more coin transactions
       //          NOTE: This value is only used to build example api links on the api page from the /ext/getaddress api for example
-      "address": "ELvb8AZRgHmdsDnD1HYFwbSY4UkPhoECCW"
+      "address": "4Ym5Exwpu74K6enEAmdUe9NL6thLPqadVZ"
     },
     // public_apis: a collection of settings that pertain to the public api command system
     //              NOTE: Disabling any of these apis will remove the api definition from the api page and will return a "This method is disabled" msg if the api endpoint is called.
@@ -1306,7 +1320,7 @@
         "getnetworkhashps": {
           // enabled: Enable/disable the /api/getnetworkhashps api endpoint (true/false)
           //          If set to false, the /api/getnetworkhashps api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getvotelist: a collection of settings that pertain to the /api/getvotelist api endpoint
         //              Returns an object with details regarding the current vote list
@@ -1314,7 +1328,7 @@
         "getvotelist": {
           // enabled: Enable/disable the /api/getvotelist api endpoint (true/false)
           //          If set to false, the /api/getvotelist api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getmasternodecount: a collection of settings that pertain to the /api/getmasternodecount api endpoint
         //                     Returns a json object containing the total number of masternodes on the network (only applicable to masternode coins)
@@ -1322,7 +1336,7 @@
         "getmasternodecount": {
           // enabled: Enable/disable the /api/getmasternodecount api endpoint (true/false)
           //          If set to false, the /api/getmasternodecount api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         }
       },
       // ext: a collection of settings that pertain to the extended apis that are retrieved from local mongo database collection
@@ -1333,7 +1347,7 @@
         "getmoneysupply": {
           // enabled: Enable/disable the /ext/getmoneysupply api endpoint (true/false)
           //          If set to false, the /ext/getmoneysupply api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getdistribution: a collection of settings that pertain to the /ext/getdistribution api endpoint
         //                  Returns wealth distribution stats
@@ -1388,7 +1402,7 @@
           "max_items_per_query": 100,
           // show_extracted_by: Determine whether to return a new field with the address(es) that mined the block
           //                    If enabled, a new field will be added to the /ext/getlasttxs api endpoint that displays the address(es) that mined the block for the coinbase transaction only
-          "show_extracted_by": false
+          "show_extracted_by": true
         },
         // getcurrentprice: a collection of settings that pertain to the /ext/getcurrentprice api endpoint
         //                  Returns last known exchange price
@@ -1396,7 +1410,7 @@
         "getcurrentprice": {
           // enabled: Enable/disable the /ext/getcurrentprice api endpoint (true/false)
           //          If set to false, the /ext/getcurrentprice api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getnetworkpeers: a collection of settings that pertain to the /ext/getnetworkpeers api endpoint
         //                  Returns the list of network peers that have connected to the explorer node in the last 24 hours
@@ -1404,7 +1418,7 @@
         "getnetworkpeers": {
           // enabled: Enable/disable the /ext/getnetworkpeers api endpoint (true/false)
           //          If set to false, the /ext/getnetworkpeers api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly) but the api will still be available internally to the explorer
-          "enabled": true
+          "enabled": false
         },
         // getbasicstats: a collection of settings that pertain to the /ext/getbasicstats api endpoint
         //                Returns basic statistics about the coin including: block count, circulating supply, USD price, default market price and # of masternodes (# of masternodes is only applicable to masternode coins)
@@ -1420,7 +1434,7 @@
         "getsummary": {
           // enabled: Enable/disable the /ext/getsummary api endpoint (true/false)
           //          If set to false, the /ext/getsummary api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly) but the api will still be available internally to the explorer
-          "enabled": true
+          "enabled": false
         },
         // getmasternodelist: a collection of settings that pertain to the /ext/getmasternodelist api endpoint
         //                    Returns the complete list of masternodes on the network (only applicable to masternode coins)
@@ -1428,7 +1442,7 @@
         "getmasternodelist": {
           // enabled: Enable/disable the /ext/getmasternodelist api endpoint (true/false)
           //          If set to false, the /ext/getmasternodelist api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly) but the api will still be available internally to the explorer
-          "enabled": true
+          "enabled": false
         },
         // getmasternoderewards: a collection of settings that pertain to the /ext/getmasternoderewards api endpoint
         //                       Returns a list of masternode reward transactions for a specific address that arrived after a specific block height (only applicable to masternode coins)
@@ -1436,7 +1450,7 @@
         "getmasternoderewards": {
           // enabled: Enable/disable the /ext/getmasternoderewards api endpoint (true/false)
           //          If set to false, the /ext/getmasternoderewards api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getmasternoderewardstotal: a collection of settings that pertain to the /ext/getmasternoderewardstotal api endpoint
         //                            Returns the total number of coins earned in masternode rewards for a specific address that arrived after a specific block height (only applicable to masternode coins)
@@ -1444,7 +1458,7 @@
         "getmasternoderewardstotal": {
           // enabled: Enable/disable the /ext/getmasternoderewardstotal api endpoint (true/false)
           //          If set to false, the /ext/getmasternoderewardstotal api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         }
       }
     }
@@ -1611,14 +1625,14 @@
   //         Adding entries to this section will display a custom label beside each affected wallet address when displayed in the explorer
   //         NOTE: You can add as many address labels as desired
   "labels": {
-    // A collection of settings that pertain to the EJ6yc47cAZMGWHFccc9gfGbDLYuyNhP6wL wallet address
+    // A collection of settings that pertain to the 4VsEs7wqRpoiTpmqViWRtse1P3CNgvBw4g wallet address
     // NOTE: Change this value to the wallet address that you would like to set a custom label on
-    "EJ6yc47cAZMGWHFccc9gfGbDLYuyNhP6wL": {
+    "4VsEs7wqRpoiTpmqViWRtse1P3CNgvBw4g": {
       // enabled: Enable/disable this particular wallet address label (true/false)
       //          If set to false, the label will be completely hidden
-      "enabled": false,
+      "enabled": true,
       // label: The text to display in the custom label
-      "label": "Development Budget",
+      "label": "Initial Supply",
       // type: The bootstrap CSS class suffix for the label. This will change the background color of the label.
       //       Valid options: primary, secondary, success, danger, warning, info, light, dark
       //       NOTE: Leave the value blank ( "" ) to use default colors
@@ -1627,12 +1641,12 @@
       //      NOTE: Leave the value blank ( "" ) to prevent hyperlinking the label
       "url": ""
     },
-    // A collection of settings that pertain to the EXorBurnAddressXXXXXXXXXXXXXW7cDZQ wallet address
+    // A collection of settings that pertain to the 4K7Q8XHw6vb8v25jBMQJvBYDJ71jJybzhG wallet address
     // NOTE: Change this value to the wallet address that you would like to set a custom label on
-    "EXorBurnAddressXXXXXXXXXXXXXW7cDZQ": {
+    "4K7Q8XHw6vb8v25jBMQJvBYDJ71jJybzhG": {
       // enabled: Enable/disable this particular wallet address label (true/false)
       //          If set to false, the label will be completely hidden
-      "enabled": false,
+      "enabled": true,
       // label: The text to display in the custom label
       "label": "Burn Address",
       // type: The bootstrap CSS class suffix for the label. This will change the background color of the label.
@@ -1642,6 +1656,54 @@
       // url: The url the label should navigate to when clicked. Ex: http://example.com
       //      NOTE: Leave the value blank ( "" ) to prevent hyperlinking the label
       "url": ""
+    },
+    // A collection of settings that pertain to the 4bep2ocS7fdmLFR2PQUDuU6TWSpHpUpDKG wallet address
+    // NOTE: Change this value to the wallet address that you would like to set a custom label on
+    "4bep2ocS7fdmLFR2PQUDuU6TWSpHpUpDKG": {
+      // enabled: Enable/disable this particular wallet address label (true/false)
+      //          If set to false, the label will be completely hidden
+      "enabled": true,
+      // label: The text to display in the custom label
+      "label": "Bridge address",
+      // type: The bootstrap CSS class suffix for the label. This will change the background color of the label.
+      //       Valid options: primary, secondary, success, danger, warning, info, light, dark
+      //       NOTE: Leave the value blank ( "" ) to use default colors
+      "type": "info",
+      // url: The url the label should navigate to when clicked. Ex: http://example.com
+      //      NOTE: Leave the value blank ( "" ) to prevent hyperlinking the label
+      "url": "https://bridge.42-coin.org/"
+    },
+    // A collection of settings that pertain to the 4bridgesiqpitwSy3U9aUxP9CQ9CUecL8Q wallet address
+    // NOTE: Change this value to the wallet address that you would like to set a custom label on
+    "4bridgesiqpitwSy3U9aUxP9CQ9CUecL8Q": {
+      // enabled: Enable/disable this particular wallet address label (true/false)
+      //          If set to false, the label will be completely hidden
+      "enabled": true,
+      // label: The text to display in the custom label
+      "label": "Bridges address",
+      // type: The bootstrap CSS class suffix for the label. This will change the background color of the label.
+      //       Valid options: primary, secondary, success, danger, warning, info, light, dark
+      //       NOTE: Leave the value blank ( "" ) to use default colors
+      "type": "info",
+      // url: The url the label should navigate to when clicked. Ex: http://example.com
+      //      NOTE: Leave the value blank ( "" ) to prevent hyperlinking the label
+      "url": ""
+    },
+    // A collection of settings that pertain to the 4HhKjL6UNvXgzvh8gQ6tDFGxXtPM8ZmysJ wallet address
+    // NOTE: Change this value to the wallet address that you would like to set a custom label on
+    "4HhKjL6UNvXgzvh8gQ6tDFGxXtPM8ZmysJ": {
+      // enabled: Enable/disable this particular wallet address label (true/false)
+      //          If set to false, the label will be completely hidden
+      "enabled": true,
+      // label: The text to display in the custom label
+      "label": "Stolen from CoinGather.com",
+      // type: The bootstrap CSS class suffix for the label. This will change the background color of the label.
+      //       Valid options: primary, secondary, success, danger, warning, info, light, dark
+      //       NOTE: Leave the value blank ( "" ) to use default colors
+      "type": "dark",
+      // url: The url the label should navigate to when clicked. Ex: http://example.com
+      //      NOTE: Leave the value blank ( "" ) to prevent hyperlinking the label
+      "url": "https://paste2.org/gGGc3ELf"
     }
   },
 
@@ -1656,7 +1718,7 @@
     { "symbol": "eth", "id": "ethereum" },
     { "symbol": "usdt", "id": "tether" },
     { "symbol": "ltc", "id": "litecoin" },
-    { "symbol": "exor", "id": "exor" }
+    { "symbol": "42", "id": "42-coin" }
   ],
 
   //api_cmds: A collection of settings that pertain to the list of customizable rpc api commands
@@ -1692,13 +1754,13 @@
     // getpeerinfo: Returns data about each connected network node as a json array of objects
     "getpeerinfo": "getpeerinfo",
     // gettxoutsetinfo: Returns an object with statistics about the unspent transaction output set
-    "gettxoutsetinfo": "gettxoutsetinfo",
+    "gettxoutsetinfo": "",
     // getvotelist: Returns an object with details regarding the current vote list
-    "getvotelist": "masternodelist votes",
+    "getvotelist": "",
     // getmasternodecount: Returns a json object containing the total number of masternodes on the network
-    "getmasternodecount": "getmasternodecount",
+    "getmasternodecount": "",
     // getmasternodelist: Returns a json array containing status information for all masternodes on the network
-    "getmasternodelist": "listmasternodes",
+    "getmasternodelist": "",
     // verifymessage: Verify a signed message. Must accept the following arguments:
     //                address: The wallet address to use for the signature
     //                signature: The signature provided by the signer in base 64 encoding
@@ -1784,7 +1846,7 @@
         "getmaxmoney": {
           // enabled: Enable/disable the /api/getmaxmoney api endpoint (true/false)
           //          If set to false, the /api/getmaxmoney api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getmaxvote: a collection of settings that pertain to the /api/getmaxvote api endpoint
         //             Returns the maximum allowed vote for the current phase of voting
@@ -1792,7 +1854,7 @@
         "getmaxvote": {
           // enabled: Enable/disable the /api/getmaxvote api endpoint (true/false)
           //          If set to false, the /api/getmaxvote api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getvote: a collection of settings that pertain to the /api/getvote api endpoint
         //          Returns the current block reward vote setting
@@ -1800,7 +1862,7 @@
         "getvote": {
           // enabled: Enable/disable the /api/getvote api endpoint (true/false)
           //          If set to false, the /api/getvote api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getphase: a collection of settings that pertain to the /api/getphase api endpoint
         //           Returns the current voting phase name
@@ -1808,7 +1870,7 @@
         "getphase": {
           // enabled: Enable/disable the /api/getphase api endpoint (true/false)
           //          If set to false, the /api/getphase api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getreward: a collection of settings that pertain to the /api/getreward api endpoint
         //            Returns the current block reward
@@ -1816,7 +1878,7 @@
         "getreward": {
           // enabled: Enable/disable the /api/getreward api endpoint (true/false)
           //          If set to false, the /api/getreward api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getsupply: a collection of settings that pertain to the /api/getsupply api endpoint
         //            Returns the current money supply
@@ -1824,7 +1886,7 @@
         "getsupply": {
           // enabled: Enable/disable the /api/getsupply api endpoint (true/false)
           //          If set to false, the /api/getsupply api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getnextrewardestimate: a collection of settings that pertain to the /api/getnextrewardestimate api endpoint
         //                        Returns an estimate for the next block reward based on the current state of decentralized voting
@@ -1832,7 +1894,7 @@
         "getnextrewardestimate": {
           // enabled: Enable/disable the /api/getnextrewardestimate api endpoint (true/false)
           //          If set to false, the /api/getnextrewardestimate api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         },
         // getnextrewardwhenstr: a collection of settings that pertain to the /api/getnextrewardwhenstr api endpoint
         //                       Returns a string describing how long until the votes are tallied and the next block reward is computed
@@ -1840,7 +1902,7 @@
         "getnextrewardwhenstr": {
           // enabled: Enable/disable the /api/getnextrewardwhenstr api endpoint (true/false)
           //          If set to false, the /api/getnextrewardwhenstr api will be completely disabled for public use (no definition on the api page and a disabled error msg if you try to call the endpoint directly)
-          "enabled": true
+          "enabled": false
         }
       }
     },

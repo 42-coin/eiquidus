@@ -8,8 +8,6 @@
 
 Written in node.js and mongodb, eIquidus is the most stable, secure, customizable and feature-rich open-source block explorer with support for virtually any altcoin that implements some form of the [Bitcoin RPC API protocol](https://developer.bitcoin.org/reference/rpc/index.html) (EVM blockchains such as ETH, BNB, etc. are not supported). Originally built for the [Exor blockchain](https://github.com/team-exor/exor), eIquidus has since grown into a fully-featured explorer with a focus on stability and security at its core. All features from the [original iquidus explorer](https://github.com/iquidus/explorer) are included here along with many new ideas from other iquidus forks, and an absolute ton of new custom changes and bug fixes that were developed specifically for eIquidus.
 
-![Homepage](public/img/screenshots/homepage-1-103-0.png)
-
 ### Crowdfunding Program
 
 Exor accepts targeted donations in an effort to crowdfund various feature and improvement requests for the block explorer and other Exor-related projects. [Browse the list of unfunded tasks](https://exor.io/tasklist/hide-completed/hide-funded/show-unfunded/) and send Exor coins to the correct funding address to help meet the funding goal for tasks that you would like to see developed. Once the funding goal is met, Exor developers will begin work on the task asap and will remain a top priority until completed. If you are a software developer and would like to work on funded tasks in exchange for payment in EXOR, please get in touch with us using one of the [Developer Contact](#developer-contact) links below.
@@ -235,10 +233,6 @@ Table of Contents
       - **getnextrewardwhenstr:** Returns a string describing how long until the votes are tallied and the next block reward is computed
   - Zcash/zk-SNARKs private tx support
 
-### See it in Action
-
--  https://explorer.exor.io/
-
 ### Installation
 
 #### Pre-Install
@@ -326,7 +320,7 @@ exit
 #### Download Source Code
 
 ```
-git clone https://github.com/team-exor/eiquidus explorer
+git clone https://github.com/42-coin/eiquidus explorer
 ```
 
 #### Install Node Modules
